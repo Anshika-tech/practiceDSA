@@ -1,5 +1,6 @@
 //level order traversal by recursion .
-class Node{
+//Method 1
+/*class Node{
     int data;
     Node left,right;
     public Node(int x){
@@ -47,4 +48,43 @@ public class BinaryTree {
         System.out.println("level order traversal of binary tree : ");
         obj.printLevel();
     }
+}
+*/
+//Method 2
+// level order traversal by queue.
+import java.util.*;
+class Node{
+    int data;
+    Node left,right;
+    public Node(int x){
+        data=x;
+    }
+}
+public class BinaryTree{
+    Node root;
+    void printLevel(){
+        Queue<Node>q=new LinkedList<Node>();
+        q.add(root);
+        while(!q.isEmpty()){
+            Node temp=q.poll();
+            System.out.print(temp.data+" ");
+            if(temp.left!=null){
+                q.add(temp.left);
+            }
+            if(temp.right!=null){
+                q.add(temp.right);
+            }
+        }
+    }
+    public static void main(String[] args) {
+        BinaryTree obj=new BinaryTree();
+        obj.root=new Node(1);
+        obj.root.left=new Node(2);
+        obj.root.right=new Node(3);
+        obj.root.left.left=new Node(4);
+        obj.root.left.right=new Node(5);
+        System.out.println("level order traversal of binary tree : ");
+           obj.printLevel();
+    }
+
 }
