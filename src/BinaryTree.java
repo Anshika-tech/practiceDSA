@@ -52,7 +52,7 @@ public class BinaryTree {
 */
 //Method 2
 // level order traversal by queue.
-import java.util.*;
+/*import java.util.*;
 class Node{
     int data;
     Node left,right;
@@ -87,4 +87,45 @@ public class BinaryTree{
            obj.printLevel();
     }
 
+}*/
+//Reverse level order traversal in binary tree
+import java.util.*;
+class Node{
+    int data;
+    Node left,right;
+    Node(int x){
+        data=x;
+    }
+}
+public class BinaryTree{
+    Node root;
+    void reverse_level(){
+        Queue<Node>q=new LinkedList<>();
+        Stack<Node>s=new Stack<Node>();
+        q.add(root);
+        while(!q.isEmpty()){
+            Node temp=q.poll();
+            s.push(temp);
+            if(temp.right!=null){
+                q.add(temp.right);
+            }
+            if(temp.left!=null){
+                q.add(temp.left);
+            }
+        }
+        while(!s.empty()){
+            Node t=s.peek();
+            System.out.print(t.data+" ");
+            s.pop();
+        }
+    }
+    public static void main(String[] args) {
+        BinaryTree obj=new BinaryTree();
+        obj.root=new Node(1);
+        obj.root.left=new Node(2);
+        obj.root.right=new Node(3);
+        obj.root.left.left=new Node(4);
+        obj.root.left.right=new Node(5);
+        obj.reverse_level();
+    }
 }
