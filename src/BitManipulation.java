@@ -1,3 +1,5 @@
+import java.util.HashSet;
+
 //count set bits in a number or number of ones .
 /*import java.util.Scanner;
 public class BitManipulation {
@@ -13,7 +15,7 @@ public class BitManipulation {
     }
 }*/
 //Find the two non-repeating elements in an array of repeating elements
-public class BitManipulation{
+/*public class BitManipulation{
     public static void main(String[] args) {
         int[] arr=new int[]{2,11,3,11,7,3,9,2};
         int s=0;
@@ -32,5 +34,23 @@ public class BitManipulation{
             }
         }
         System.out.println("two non repeating elements are:  "+s1 +" "+s2);
+    }
+}
+*/
+//by using map.
+import java.util.*;
+public class BitManipulation{
+    public static void main(String[] args) {
+        int[] arr=new int[]{2,11,3,11,7,3,9,2};
+        TreeMap<Integer,Integer>m=new TreeMap<>();
+        for(int i=0;i<arr.length;i++){
+            if(m.containsKey(arr[i])){
+                m.remove(arr[i]);
+            }
+            else{
+                m.put(arr[i],1);
+            }
+        }
+        System.out.println("Non repeating elements: "+m.firstKey()+" "+m.lastKey());
     }
 }
