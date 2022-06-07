@@ -36,7 +36,7 @@ public class BitManipulation {
         System.out.println("two non repeating elements are:  "+s1 +" "+s2);
     }
 }
-*/
+
 //by using map.
 import java.util.*;
 public class BitManipulation{
@@ -52,5 +52,19 @@ public class BitManipulation{
             }
         }
         System.out.println("Non repeating elements: "+m.firstKey()+" "+m.lastKey());
+    }
+}*/
+//Count number of bits to be flipped to convert A to B
+public class BitManipulation{
+    public static void main(String[] args) {
+        int a=20;
+        int b=10;
+        int n=a^b;
+        int c=0;
+        while(n!=0){
+            c++;
+            n=n&n-1;
+        }
+        System.out.println(c+" bits to be flipped to convert a to b");
     }
 }
