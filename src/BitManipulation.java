@@ -70,7 +70,7 @@ public class BitManipulation{
 }
 */
 //Program to find whether a no is power of two
-public class BitManipulation{
+/*public class BitManipulation{
     //1 method
     static boolean power(int x){
         return x!=0 && ((x&x-1)==0);
@@ -87,5 +87,27 @@ public class BitManipulation{
         System.out.println(powerof2(32));
         System.out.println(powerof2(38));
         System.out.println(powerof2(4));
+    }
+}*/
+//program to find the position of set bit.
+//if there is only one set bit then find the position of that set bit,if there are more than one set bit return -1.
+import java.util.Scanner;
+public class BitManipulation {
+    public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       int N=sc.nextInt();
+       //if number is power of 2 then only one set bit exist.
+       if(N!=0&&(N&N-1)==0){
+           int n=1;
+           int c=N;
+           while(c!=1){
+               n++;
+               c=c>>1;
+           }
+           System.out.println("position of set bit is "+n);
+       }
+       else {
+           System.out.println("-1");
+       }
     }
 }
