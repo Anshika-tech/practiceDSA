@@ -91,7 +91,7 @@ public class BitManipulation{
 }*/
 //program to find the position of set bit.
 //if there is only one set bit then find the position of that set bit,if there are more than one set bit return -1.
-import java.util.Scanner;
+/*import java.util.Scanner;
 public class BitManipulation {
     public static void main(String[] args) {
        Scanner sc=new Scanner(System.in);
@@ -109,5 +109,24 @@ public class BitManipulation {
        else {
            System.out.println("-1");
        }
+    }
+}
+*/
+//copy all set bits in a range.
+import java.util.Scanner;
+public class BitManipulation {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int a=sc.nextInt();
+        int b=sc.nextInt();
+        int l=sc.nextInt();
+        int r=sc.nextInt();
+        for(int i=l;i<=r;i++){
+            int mask=1<<i-1;
+            if((mask&b)!=0){
+                a=a|mask;
+            }
+        }
+        System.out.println(a);
     }
 }
