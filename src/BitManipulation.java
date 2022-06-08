@@ -55,7 +55,7 @@ public class BitManipulation{
     }
 }*/
 //Count number of bits to be flipped to convert A to B
-public class BitManipulation{
+/*public class BitManipulation{
     public static void main(String[] args) {
         int a=20;
         int b=10;
@@ -66,5 +66,26 @@ public class BitManipulation{
             n=n&n-1;
         }
         System.out.println(c+" bits to be flipped to convert a to b");
+    }
+}
+*/
+//Program to find whether a no is power of two
+public class BitManipulation{
+    //1 method
+    static boolean power(int x){
+        return x!=0 && ((x&x-1)==0);
+    }
+    //2 method
+    static boolean powerof2(int x){
+        return (int)(Math.ceil((Math.log(x)/Math.log(2))))==(int)(Math.floor((Math.log(x)/Math.log(2))));
+    }
+    public static void main(String[] args) {
+        System.out.println(power(31));
+        System.out.println(power(64));
+        System.out.println(power(98));
+        System.out.println(power(1));
+        System.out.println(powerof2(32));
+        System.out.println(powerof2(38));
+        System.out.println(powerof2(4));
     }
 }
