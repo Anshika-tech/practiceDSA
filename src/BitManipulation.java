@@ -113,7 +113,7 @@ public class BitManipulation {
 }
 */
 //copy all set bits in a range.
-import java.util.Scanner;
+/*import java.util.Scanner;
 public class BitManipulation {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
@@ -128,5 +128,26 @@ public class BitManipulation {
             }
         }
         System.out.println(a);
+    }
+}*/
+//Divide two integers without using multiplication, division and mod operator.
+import java.util.Scanner;
+public class BitManipulation {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a=sc.nextInt();
+        int b=sc.nextInt();
+        int sign=(a<0 ^ b<0)?-1:1;
+        a=Math.abs(a);
+        b=Math.abs(b);
+        int q=0;
+        while(a>=b){
+            a-=b;
+            q++;
+        }
+        if(sign==-1){
+            q=-q;
+        }
+        System.out.println(q);
     }
 }
