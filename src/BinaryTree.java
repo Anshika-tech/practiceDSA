@@ -89,7 +89,7 @@ public class BinaryTree{
 
 }*/
 //Reverse level order traversal in binary tree
-import java.util.*;
+/*import java.util.*;
 class Node{
     int data;
     Node left,right;
@@ -127,5 +127,36 @@ public class BinaryTree{
         obj.root.left.left=new Node(4);
         obj.root.left.right=new Node(5);
         obj.reverse_level();
+    }
+}*/
+//diameter of binary tree.
+class Node{
+    int data;
+    Node left,right;
+    public Node(int x){
+        data=x;
+    }
+}
+public class BinaryTree{
+    static Node root;
+    static int ans=0;
+    int diameter(Node root){
+        if(root==null)
+            return 0;
+        int rootleft=diameter(root.left);
+        int rootright=diameter(root.right);
+        ans=Math.max(ans,1+rootleft+rootright);
+        return 1+Math.max(rootleft,rootright);
+    }
+    public static void main(String[] args) {
+        BinaryTree obj=new BinaryTree();
+        root=new Node(1);
+        root.left=new Node(2);
+        root.right=new Node(3);
+        root.left.left=new Node(4);
+        root.left.right=new Node(5);
+        root.right.right=new Node(7);
+        obj.diameter(root);
+        System.out.println(ans);
     }
 }
