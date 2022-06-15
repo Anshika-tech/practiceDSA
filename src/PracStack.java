@@ -39,7 +39,7 @@
 }
 */
 //Implementation of two stack in an array.
-public class Stack{
+/*public class Stack{
     int size;
     int top1,top2;
     int arr[];
@@ -100,5 +100,32 @@ public class Stack{
         System.out.println("popped element from stack1 is "+obj.pop1());
         System.out.println("popped element from stack2 is "+obj.pop2());
     }
-
+}*/
+//previous smallest element
+import java.util.*;
+public class PracStack{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int a[]=new int[8];
+        for(int i=0;i<a.length;i++){
+            a[i]=sc.nextInt();
+        }
+        Stack<Integer>s=new Stack<>();
+        ArrayList<Integer>arr=new ArrayList<>();
+        arr.add(-1);
+        s.push(a[0]);
+        for(int i=1;i<a.length;i++){
+            while(!s.empty()&&s.peek()>a[i]){
+                s.pop();
+            }
+            if(!s.empty()){
+                arr.add(s.peek());
+            }
+            else
+                arr.add(-1);
+            s.push(a[i]);
+        }
+        System.out.println(arr);
+    }
 }
+
