@@ -102,7 +102,7 @@
     }
 }*/
 //previous smallest element
-import java.util.*;
+/*import java.util.*;
 public class PracStack{
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
@@ -128,4 +128,31 @@ public class PracStack{
         System.out.println(arr);
     }
 }
-
+*/
+//Next greater element
+import java.util.*;
+public class PracStack{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int a[]=new int[8];
+        for(int i=0;i<a.length;i++){
+            a[i]=sc.nextInt();
+        }
+        Stack<Integer>s=new Stack<>();
+        ArrayList<Integer>arr=new ArrayList<>();
+        for(int i=a.length-1;i>=0;i--){
+            while(!s.empty()&&s.peek()<a[i]){
+                s.pop();
+            }
+            if(!s.empty()){
+                arr.add(s.peek());
+            }
+            else
+                arr.add(-1);
+            s.push(a[i]);
+        }
+        for(int i=a.length-1;i>=0;i--) {
+            System.out.print(arr.get(i)+" ");
+        }
+    }
+}
