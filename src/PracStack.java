@@ -130,7 +130,7 @@ public class PracStack{
 }
 */
 //Next greater element
-import java.util.*;
+/*import java.util.*;
 public class PracStack{
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
@@ -153,6 +153,39 @@ public class PracStack{
         }
         for(int i=a.length-1;i>=0;i--) {
             System.out.print(arr.get(i)+" ");
+        }
+    }
+}*/
+//Check the expression has valid or Balanced parenthesis or not.
+import java.util.*;
+public class PracStack{
+    static boolean parenthesis(String x)
+    {
+        Stack<Character>s=new Stack<>();
+        for(int i=0;i<x.length();i++){
+            if(x.charAt(i)=='('||x.charAt(i)=='['||x.charAt(i)=='{'){
+                s.push(x.charAt(i));
+            }
+            else {if(s.empty()){
+                return false;
+            }
+            else if((x.charAt(i)==')'&&s.peek()=='(')||(x.charAt(i)==']'&&s.peek()=='[')
+                    ||(x.charAt(i)=='}'&&s.peek()=='{'))
+                s.pop();
+            else
+                return false;
+            }
+        }
+       return s.empty();
+    }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String str=sc.next();
+        if(parenthesis(str)){
+            System.out.println("Balanced");
+        }
+        else {
+            System.out.println("Not Balanced");
         }
     }
 }
